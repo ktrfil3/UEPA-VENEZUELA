@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   const container = document.getElementById("newsContainer");
 
   try {
-    const response = await fetch("../Data/news.json");
+    const response = await fetch("https://uepavenezuela.vercel.app/UEPA-VENEZUELA/Data/news.json");
     const noticias = await response.json();
 
     noticias.forEach(noticia => {
