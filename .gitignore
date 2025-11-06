@@ -1,0 +1,43 @@
+# --------------------
+# 1. DEPENDENCIAS
+# --------------------
+/node_modules
+/npm-debug.log
+/yarn-error.log
+/pnpm-debug.log
+/package-lock.json 
+/yarn.lock 
+/pnpm-lock.yaml 
+
+# --------------------
+# 2. CARPETAS DE COMPILACIÓN (VITE/VERCEL)
+# --------------------
+/dist 
+/dist-ssr 
+/coverage
+/es/
+/lib/
+/temp/
+
+# --------------------
+# 3. ARCHIVOS DE ENTORNO Y CLAVES
+# --------------------
+# Nunca subas archivos que contengan claves secretas o datos de conexión
+.env
+.env.local
+.env.*.local
+
+# --------------------
+# 4. CACHÉ Y HERRAMIENTAS
+# --------------------
+/.vitepress/cache
+/.idea
+/.vscode
+*.tsbuildinfo
+*.local
+.DS_Store # Archivos de macOS
+
+# --------------------
+# 5. CARPETAS DE PRUEBAS
+# --------------------
+/test-results/

@@ -1,0 +1,294 @@
+/* Variables de color basadas en la imagen de referencia */
+:root {
+    --color-fondo: #1E3A8A; /* Azul oscuro principal */
+    --color-geometria-azul: #3B5B9F; /* Azul ligeramente más claro */
+    --color-geometria-naranja: #F97316; /* Naranja vibrante */
+    --color-geometria-rojo: #EF4444; /* Rojo/coral */
+    --color-geometria-amarillo: #FBBF24; /* Amarillo mostaza */
+    --color-texto-principal: #FFFFFF; /* Blanco para texto */
+    --color-input-fondo: #FFFFFF; /* Fondo de campos de entrada */
+    --color-boton: #4C6EF5; /* Azul medio para el botón */
+    --color-enlace: #93C5FD; /* Azul claro para enlaces/texto secundario */
+}
+
+/* Estilos generales del cuerpo */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: var(--color-fondo);
+    color: var(--color-texto-principal);
+    overflow: hidden; /* Oculta cualquier parte de la geometría que se salga */
+}
+
+/* ... (Estilos body y .card - mantener) ... */
+
+/* Contenedor principal con el diseño de pantalla dividida */
+.card {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    max-width: none;
+    background-color: transparent;
+    border-radius: 0;
+    box-shadow: none;
+    padding: 0;
+}
+
+/* 🖼️ Nuevo estilo: Contenedor para el fondo geométrico (lado izquierdo) usando una imagen */
+.card::before {
+    content: '';
+    flex: 1; /* Ocupa el 50% del ancho */
+    position: relative;
+    overflow: hidden;
+    
+    /* Configuración de la imagen de fondo */
+    background-image: url('/public/images/work-items/work-item-10.jpg'); /* ⬅️ ¡Asegúrate de que esta ruta sea correcta! */
+    background-color: var(--color-fondo); /* Color de respaldo por si la imagen no carga */
+    background-size: cover; /* Ajusta la imagen para cubrir el área sin distorsión */
+    background-position: center; /* Centra la imagen */
+    background-repeat: no-repeat;
+}
+/* Estilos para el formulario (lado derecho) */
+form {
+    flex: 1; /* Ocupa el 50% del ancho */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centrado vertical */
+    padding: 40px 80px;
+    box-sizing: border-box;
+}
+
+/* Título (Registro de Pagos) */
+.card h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+    text-align: right; /* Alineación del título como en la imagen de referencia */
+    padding: 0 80px; /* Padding para alinearlo con el formulario */
+    position: absolute;
+    top: 15%;
+    right: 0;
+    width: 50%;
+    box-sizing: border-box;
+}
+
+/* Estilos de los campos de entrada y textarea */
+#pagoForm input[type="text"],
+#pagoForm textarea,
+#pagoForm input[type="file"] {
+    width: 100%;
+    padding: 12px 15px;
+    margin-bottom: 25px;
+    border: none;
+    border-radius: 4px;
+    background-color: var(--color-input-fondo);
+    color: var(--color-fondo); /* Texto oscuro dentro del campo blanco */
+    font-size: 1rem;
+    box-sizing: border-box;
+    outline: none;
+    transition: box-shadow 0.3s;
+}
+
+#pagoForm input[type="text"]:focus,
+#pagoForm textarea:focus {
+    box-shadow: 0 0 0 3px var(--color-boton);
+}
+.modal {
+            display: none; /* Inicia oculto */
+            position: fixed; /* Fijo en la pantalla */
+            z-index: 1000; /* Asegura que esté por encima de todo */
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.7); /* Fondo semi-transparente negro */
+        }
+
+        /* La caja del contenido de la modal */
+        .modal-content {
+            background-color: #000000a6;
+            margin: 10% auto; /* 10% desde arriba y centrado horizontalmente */
+            padding: 20px;
+            border: 1px solid #4b4b4b;
+            width: 80%; /* Ancho del contenido */
+            max-width: 400px; /* Máximo 400px para que no sea muy grande */
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            position: relative;
+        }
+        #abrirModalBtn{
+            text-transform: uppercase;
+            font-family: "rader";
+            font-style: italic;
+            background-color: #0d1117b2; /* Fondo oscuro (casi negro) */
+            color: #00ffc8; /* Color principal del texto (verde cian brillante) */
+            border: 2px solid #00ffc8; /* Borde sólido del color del neón */
+            padding: 12px 25px;
+            font-family: 'Arial', sans-serif;
+            font-size: 16px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            cursor: pointer;
+            border-radius: 8px; /* Bordes ligeramente redondeados */
+            text-transform: uppercase;
+            transition: all 0.4s ease; /* Transición suave para el efecto hover */  
+    
+    /* Efecto neón inicial sutil */
+    box-shadow: 0 0 5px rgba(0, 255, 200, 0.4);
+        }
+
+        #abrirModalBtn:hover{
+            /* Iluminación intensa (Glow) */
+             box-shadow: 
+                 0 0 10px rgba(0, 255, 200, 0.8), /* Sombra interior */
+                 0 0 20px rgba(0, 255, 200, 0.6), /* Sombra exterior */
+                 0 0 40px rgba(0, 255, 200, 0.4); /* Sombra difusa */
+    
+                /* Efecto de "energía" */
+                background-color: #00ffc8; /* Rellena el fondo con el color neón */
+                color: #0d1117; /* Invierte el color del texto para contraste */
+    
+                /* Pequeña transformación para feedback visual */
+                transform: scale(1.05);
+                    }
+
+                /* Efecto opcional al hacer clic */
+                .boton-futurista:active {
+                transform: scale(0.98);
+    }
+                /* Estilo para el botón de cerrar (x) */
+        .close-btn {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            line-height: 20px;
+            cursor: pointer;
+        }
+
+        .close-btn:hover,
+        .close-btn:focus {
+            color: #cacaca;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        /* Estilos de los datos bancarios para mejor lectura */
+        .bank-data p {
+            margin: 5px 0;
+            line-height: 1.4;
+        }
+
+        .bank-data strong {
+            display: block;
+            margin-top: 10px;
+            color: #004d99; /* Azul oscuro */
+            font-size: 1.1em;
+        }
+/* Altura específica para el área de texto */
+#pagoForm textarea {
+    resize: none;
+    height: 80px;
+}
+
+/* Estilo para el campo de subir archivo */
+#pagoForm input[type="file"] {
+    padding: 8px 15px; /* Ajuste de padding */
+    /* Personalización para que se vea más limpio (aunque la apariencia varía mucho entre navegadores) */
+    color: var(--color-texto-principal);
+    background-color: rgba(255, 255, 255, 0.1); /* Fondo semitransparente oscuro */
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+}
+
+/* Estilo del botón "Registrar Pago" (similar al "Sign in now") */
+#pagoForm button[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--color-boton);
+    color: var(--color-texto-principal);
+    border: none;
+    border-radius: 4px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+}
+.regis{
+    text-transform: uppercase;
+    font-family: "rader";
+    font-style: italic;
+}
+#pagoForm button[type="submit"]:hover {
+    background-color: #3f5aa0; /* Tono más oscuro al pasar el ratón */
+}
+
+/* Estilo del mensaje (se usa para el texto debajo del botón) */
+.mensaje {
+    text-align: right;
+    margin-top: 40px;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    padding-bottom: 20px;
+}
+
+.mensaje a {
+    color: var(--color-enlace);
+    text-decoration: none;
+    margin-left: 0px;
+}
+
+.mensaje a:hover {
+    text-decoration: underline;
+}
+
+/* Alineación y estilo del texto de los enlaces de Términos/Privacidad */
+/* Aquí simularemos esa sección usando el párrafo con la clase 'mensaje' */
+.mensaje {
+    text-align: center;
+    width: 100%;
+    position: absolute;
+    bottom: 20px;
+    right: 0;
+    width: 50vw;
+}
+
+/* Adaptación para pantallas más pequeñas (opcional) */
+@media (max-width: 768px) {
+    .card {
+        flex-direction: column;
+        height: auto;
+        min-height: 100vh;
+    }
+
+    .card::before {
+        display: none; /* Oculta la geometría en móvil para simplificar */
+    }
+
+    form {
+        width: 100%;
+        padding: 40px;
+    }
+    
+    .card h2 {
+        position: static;
+        text-align: center;
+        width: 100%;
+        padding: 40px 0 0;
+        margin-bottom: 20px;
+    }
+
+    .mensaje {
+        position: static;
+        width: 100%;
+        margin-top: 20px;
+        padding-bottom: 40px;
+    }
+}
