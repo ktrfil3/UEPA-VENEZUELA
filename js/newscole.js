@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   const container = document.getElementById("newsContainer2");
 
   try {
-    const response = await fetch("/data/newscole.json");
+    const response = await fetch("/Data/newscole.json");
     const noticias = await response.json();
 
     noticias.forEach(noticia => {
