@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "titulo": "Nuevo Congreso de Jóvenes Adventistas",
+    "fecha": "2025-11-02",
+    "imagen": "/Fotos y Videos Adventista Venezuela/IMG_5711.JPG",
+    "contenido": "Más de 300 jóvenes se reunieron en Caracas para celebrar un congreso lleno de música, oración y reflexión espiritual."
+  },
+  {
+    "id": 2,
+    "titulo": "Campaña de Solidaridad Nacional",
+    "fecha": "2025-10-28",
+    "imagen": "/Fotos y Videos Adventista Venezuela/IMG_5776.JPG",
+    "contenido": "La comunidad adventista realizó una jornada de ayuda social en diversas regiones del país, beneficiando a más de 500 familias."
+  },
+    {
+        "id": 3,
+        "titulo": "Inauguración de Nueva Iglesia en Ciudad Bolívar",
+        "fecha": "2025-10-15",
+        "imagen": "/Fotos y Videos Adventista Venezuela/IMG_5904.JPG",
+        "contenido": "Se inauguró una nueva iglesia adventista en Maracaibo, con una ceremonia especial que contó con la presencia de líderes locales y nacionales."
+    }
+    ]
